@@ -20,21 +20,21 @@ int main()
 {
 	cout << "Hello circles" << endl;
 
-	int x = 100;
-	int y = 100;
+	int xDIR1 = 5;
+	int yDIR1 = 10;
 
 	while(UpdateFramework())
 	{
 		// Draws a circle at 100,200 with radius 20
-		DrawCircle(x+=5,y+=10,20);	
+		DrawCircle(xDIR1,yDIR1,20);	
 
-		if (x == gScreenWidth)
+		if (xDIR1 == gScreenWidth)
 		{
-			x = 0;
+			xDIR1 = 0;
 		}
-		if (y == gScreenHeight)
+		if (yDIR1 == gScreenHeight)
 		{
-			y = 0;
+			yDIR1 = 0;
 		}
 	}
 
