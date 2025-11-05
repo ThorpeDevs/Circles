@@ -20,11 +20,13 @@ int main()
 {
 	cout << "Hello circles" << endl;
 
-	bool xDIR1 = false;
-	bool yDIR1 = false;
+	srand(time(0));
 
-	int xLOC1 = 0;
-	int yLOC1 = 0;
+	int xDIR1 = false;
+	int yDIR1 = false;
+
+	int xLOC1 = rand() % gScreenWidth;
+	int yLOC1 = rand() % gScreenHeight;
 	int scale = 20;
 	int xspeed = 5;
 	int yspeed = 5;
@@ -39,11 +41,13 @@ int main()
 		else { yLOC1+= yspeed; }
 
 		// Checks for boundaries and reverses direction variable
-		if (xLOC1 == gScreenWidth-(scale * 2)) { xDIR1 = true; }
-		else if (xLOC1 == 0) { xDIR1 = false; }
+		if (xLOC1 >= gScreenWidth - (scale * 2)) { xDIR1 = true; }
+		else if (xLOC1 <= 0) { xDIR1 = false; }
 
-		if (yLOC1 == gScreenHeight-(scale * 2)) { yDIR1 = true; }
-		else if (yLOC1 == 0) { yDIR1 = false; }
+		if (yLOC1 >= gScreenHeight - (scale * 2)) { yDIR1 = true; }
+		else if (yLOC1 <= 0) { yDIR1 = false; }
+
+		cout << xLOC1 << ", " << yLOC1 << endl;
 
 		// Draws a circle at 100,200 with radius 20
 		DrawCircle(xLOC1,yLOC1,scale);
