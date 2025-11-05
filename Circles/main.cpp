@@ -18,39 +18,53 @@ using namespace std;
 
 int main()
 {
-	cout << "Hello circles" << endl;
+	std::cout << "Hello circles" << endl;
 
 	srand(time(0));
 
-	int xDIR1 = false;
-	int yDIR1 = false;
+	bool xDIR1[100];
+	bool yDIR1[100];
 
-	int xLOC1 = rand() % gScreenWidth;
-	int yLOC1 = rand() % gScreenHeight;
+	int xLOC1[100];
+	int yLOC1[100];
 	int scale = 20;
 	int xspeed = 5;
 	int yspeed = 5;
 
+	cout << "Created variables" << endl;
+
+	for (int a = 0; a < 100; a++) {
+		xDIR1[a] = false;
+		yDIR1[a] = false;
+		xLOC1[a] = rand() % gScreenWidth;
+		yLOC1[a] = rand() % gScreenHeight;
+
+		cout << xDIR1[a] << ", " << yDIR1[a] << endl;
+	}
+
 	while(UpdateFramework())
 	{
-		// Updates location based on direction variable
-		if (xDIR1 == true){xLOC1-= xspeed;}
-		else {xLOC1+= xspeed;}
+		for (int i=0; i < 100; i++)
+		{
+			// Updates location based on direction variable
+			if (xDIR1[i] == true) { xLOC1[i] -= xspeed; }
+			else { xLOC1[i] += xspeed; }
 
-		if (yDIR1 == true){yLOC1-= yspeed;}
-		else { yLOC1+= yspeed; }
+			if (yDIR1[i] == true) { yLOC1[i] -= yspeed; }
+			else { yLOC1[i] += yspeed; }
 
-		// Checks for boundaries and reverses direction variable
-		if (xLOC1 >= gScreenWidth - (scale * 2)) { xDIR1 = true; }
-		else if (xLOC1 <= 0) { xDIR1 = false; }
+			// Checks for boundaries and reverses direction variable
+			if (xLOC1[i] >= gScreenWidth - (scale * 2)) { xDIR1[i] = true; }
+			else if (xLOC1[i] <= 0) { xDIR1[i] = false; }
 
-		if (yLOC1 >= gScreenHeight - (scale * 2)) { yDIR1 = true; }
-		else if (yLOC1 <= 0) { yDIR1 = false; }
+			if (yLOC1[i] >= gScreenHeight - (scale * 2)) { yDIR1[i] = true; }
+			else if (yLOC1[i] <= 0) { yDIR1[i] = false; }
 
-		cout << xLOC1 << ", " << yLOC1 << endl;
+			cout << xLOC1[i] << ", " << yLOC1[i] << endl;
 
-		// Draws a circle at 100,200 with radius 20
-		DrawCircle(xLOC1,yLOC1,scale);
+			// Draws a circle at 100,200 with radius 20
+			DrawCircle(xLOC1[i], yLOC1[i], scale);
+		}
 	}
 
 	cout << "Bye bye" << endl;
