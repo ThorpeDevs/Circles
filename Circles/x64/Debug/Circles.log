@@ -1,0 +1,5 @@
+﻿  framework.cpp
+  main.cpp
+C:\Users\hayde\Desktop\C++\Week4\Circles\Circles\Circles\main.cpp(23,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Circles.vcxproj -> C:\Users\hayde\Desktop\C++\Week4\Circles\Circles\x64\Debug\Circles.exe
